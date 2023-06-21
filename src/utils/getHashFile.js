@@ -3,7 +3,7 @@ import { createHash } from 'crypto';
 import { resolve } from 'path';
 import { error } from './showMessage.js';
 
-const getHashFile = async ([file]) => {
+const getHashFile = ([file]) => {
   const targetFile = resolve(file);
   const readStream = createReadStream(targetFile);
   const hash = createHash('sha256').setEncoding('hex');

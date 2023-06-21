@@ -2,24 +2,12 @@ import validateLine from './utils/validateLine.js';
 import showFilesList from './utils/showFilesList.js';
 import moveToFolder from './utils/moveToFolder.js';
 import showOsData from './utils/showOsData.js';
+import readTargetFile from './utils/readTargetFile.js';
 
 import getHashFile from './utils/getHashFile.js';
+import compressFile from './utils/compressFile.js';
 
 import * as showMessage from './utils/showMessage.js';
-// import { getOsData } from './getOsData.js';
-// import { wrong } from '../helpers/showMessage.js';
-// import { currentDir } from '../helpers/showMessage.js';
-// import { getFilesList } from './getFilesList.js';
-// import { goToFolder } from './goToFolder.js';
-// import { readTargetFile } from './readTargetFile.js';
-// import { createNewFile } from './createNewFile.js';
-// import { renameFile } from './renameFile.js';
-// import { copyTargetFile } from './copyTargetFile.js';
-// import { validateLineData } from '../helpers/validateLineData.js';
-// import { getHashFile } from './getHashFile.js';
-// import { removeTargetFile } from './removeTargetFile.js';
-// import { moveFileToFolder } from './moveFileToFolder.js';
-// import { handleCompressFile } from './handleCompressFile.js';
 
 const parseLine = async (line) => {
   let [point, ...data] = line.trim().split(/\s+/);
@@ -46,9 +34,9 @@ const parseLine = async (line) => {
         showOsData(data);
         break;
 
-      //   case 'cat':
-      //     readTargetFile(data);
-      //     break;
+      case 'cat':
+        readTargetFile(data);
+        break;
 
       //   case 'add':
       //     await createNewFile(data);
@@ -59,7 +47,7 @@ const parseLine = async (line) => {
       //     break;
 
       case 'hash':
-        await getHashFile(data);
+        getHashFile(data);
         break;
 
       //   case 'rn':
@@ -74,13 +62,13 @@ const parseLine = async (line) => {
       //     await moveFileToFolder(data);
       //     break;
 
-      //   case 'compress':
-      //     await handleCompressFile(data, point);
-      //     break;
+      case 'compress':
+        await compressFile(data, point);
+        break;
 
-      //   case 'decompress':
-      //     await handleCompressFile(data, point);
-      //     break;
+      case 'decompress':
+        await compressFile(data, point);
+        break;
 
       case '.exit':
         process.exit();
