@@ -1,4 +1,5 @@
 import validateLine from './utils/validateLine.js';
+import showFilesList from './utils/showFilesList.js';
 
 import * as showMessage from './utils/showMessage.js';
 // import { getOsData } from './getOsData.js';
@@ -22,16 +23,16 @@ const parseLine = async (line) => {
   const isValid = validateLine(point, data);
 
   if (isValid) {
-    // data.length && (data = data.map((str) => str.replaceAll('*', ' ')));
+    data.length && (data = data.map((str) => str.replaceAll('*', ' ')));
 
     switch (point) {
-      //   case 'up':
-      //     process.chdir('..');
-      //     break;
+      case 'up':
+        process.chdir('..');
+        break;
 
-      //   case 'ls':
-      //     await getFilesList();
-      //     break;
+      case 'ls':
+        await showFilesList();
+        break;
 
       //   case 'cd':
       //     goToFolder(data);
