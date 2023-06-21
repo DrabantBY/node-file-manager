@@ -1,5 +1,9 @@
 import validateLine from './utils/validateLine.js';
 import showFilesList from './utils/showFilesList.js';
+import moveToFolder from './utils/moveToFolder.js';
+import showOsData from './utils/showOsData.js';
+
+import getHashFile from './utils/getHashFile.js';
 
 import * as showMessage from './utils/showMessage.js';
 // import { getOsData } from './getOsData.js';
@@ -34,13 +38,13 @@ const parseLine = async (line) => {
         await showFilesList();
         break;
 
-      //   case 'cd':
-      //     goToFolder(data);
-      //     break;
+      case 'cd':
+        moveToFolder(data);
+        break;
 
-      //   case 'os':
-      //     getOsData(data);
-      //     break;
+      case 'os':
+        showOsData(data);
+        break;
 
       //   case 'cat':
       //     readTargetFile(data);
@@ -54,9 +58,9 @@ const parseLine = async (line) => {
       //     await removeTargetFile(data);
       //     break;
 
-      //   case 'hash':
-      //     await getHashFile(data);
-      //     break;
+      case 'hash':
+        await getHashFile(data);
+        break;
 
       //   case 'rn':
       //     await renameFile(data);
