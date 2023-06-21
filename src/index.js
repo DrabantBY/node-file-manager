@@ -1,27 +1,27 @@
 import { createInterface } from 'readline/promises';
 import { homedir } from 'os';
-import { getUserName } from './handlers/getUserName.js';
-import * as message from './helpers/showMessage.js';
-import { parseEnterData } from './handlers/parseEnterData.js';
+import parseLine from './switcher.js';
+import getUserName from './utils/getUserName.js';
+import * as showMessage from './utils/showMessage.js';
 
 const userName = getUserName();
 
 if (userName) {
   process.chdir(homedir());
 
-  message.hello(userName);
-  message.currentDir();
+  showMessage.hello(userName);
+  showMessage.folder();
 
   const readLine = createInterface({
     input: process.stdin,
     output: process.stdout,
   });
 
-  readLine.on('line', parseEnterData);
+  readLine.on('line', parseLine);
   readLine.on('SIGINT', process.exit);
 
-  process.on('exit', () => message.bye(userName));
-  process.on('error', () => message.error());
+  process.on('exit', () => showMessage.bye(userName));
+  process.on('error', () => showMessage.error());
 } else {
-  message.error();
+  showMessage.error();
 }
