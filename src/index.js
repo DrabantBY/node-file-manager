@@ -21,7 +21,7 @@ if (userName) {
   readLine.on('SIGINT', process.exit);
 
   process.on('exit', () => showMessage.bye(userName));
-  process.on('error', () => showMessage.error());
+  process.on('error', showMessage.error);
 } else {
   showMessage.error();
 }

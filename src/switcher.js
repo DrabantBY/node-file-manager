@@ -3,6 +3,10 @@ import showFilesList from './utils/showFilesList.js';
 import moveToFolder from './utils/moveToFolder.js';
 import showOsData from './utils/showOsData.js';
 import readTargetFile from './utils/readTargetFile.js';
+import createNewFile from './utils/createNewFile.js';
+import removeTargetFile from './utils/removeFile.js';
+import renameFile from './utils/renameFile.js';
+import copyFile from './utils/copyFile.js';
 
 import getHashFile from './utils/getHashFile.js';
 import compressFile from './utils/compressFile.js';
@@ -38,25 +42,25 @@ const parseLine = async (line) => {
         readTargetFile(data);
         break;
 
-      //   case 'add':
-      //     await createNewFile(data);
-      //     break;
+      case 'add':
+        await createNewFile(data);
+        break;
 
-      //   case 'rm':
-      //     await removeTargetFile(data);
-      //     break;
+      case 'rm':
+        await removeTargetFile(data);
+        break;
 
       case 'hash':
         getHashFile(data);
         break;
 
-      //   case 'rn':
-      //     await renameFile(data);
-      //     break;
+      case 'rn':
+        await renameFile(data);
+        break;
 
-      //   case 'cp':
-      //     await copyTargetFile(data);
-      //     break;
+      case 'cp':
+        await copyFile(data);
+        break;
 
       //   case 'mv':
       //     await moveFileToFolder(data);
