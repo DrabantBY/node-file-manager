@@ -2,7 +2,7 @@ import { resolve } from 'path';
 import { open } from 'fs/promises';
 import { error } from './showMessage.js';
 
-const createNewFile = async ([file]) => {
+const createFile = async ([file]) => {
   try {
     const targetFile = resolve(file);
     await open(targetFile, 'wx');
@@ -11,4 +11,4 @@ const createNewFile = async ([file]) => {
   }
 };
 
-export default createNewFile;
+export default createFile;

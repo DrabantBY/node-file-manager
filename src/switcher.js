@@ -3,14 +3,13 @@ import showFilesList from './utils/showFilesList.js';
 import moveToFolder from './utils/moveToFolder.js';
 import showOsData from './utils/showOsData.js';
 import readTargetFile from './utils/readTargetFile.js';
-import createNewFile from './utils/createNewFile.js';
-import removeTargetFile from './utils/removeFile.js';
+import createFile from './utils/createFile.js';
+import removeFile from './utils/removeFile.js';
 import renameFile from './utils/renameFile.js';
 import copyFile from './utils/copyFile.js';
-
+import moveFile from './utils/moveFile.js';
 import getHashFile from './utils/getHashFile.js';
 import compressFile from './utils/compressFile.js';
-
 import * as showMessage from './utils/showMessage.js';
 
 const parseLine = async (line) => {
@@ -43,11 +42,11 @@ const parseLine = async (line) => {
         break;
 
       case 'add':
-        await createNewFile(data);
+        await createFile(data);
         break;
 
       case 'rm':
-        await removeTargetFile(data);
+        await removeFile(data);
         break;
 
       case 'hash':
@@ -62,9 +61,9 @@ const parseLine = async (line) => {
         await copyFile(data);
         break;
 
-      //   case 'mv':
-      //     await moveFileToFolder(data);
-      //     break;
+      case 'mv':
+        await moveFile(data);
+        break;
 
       case 'compress':
         await compressFile(data, point);
