@@ -74,6 +74,7 @@ const parseLine = async (line) => {
         break;
 
       case '.exit':
+        showMessage.folder();
         process.exit();
     }
   } else {
