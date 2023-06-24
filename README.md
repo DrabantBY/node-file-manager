@@ -18,6 +18,18 @@
 - `rn path_to_file new_filename` => _rename file_
 - `cp path_to_file path_to_new_directory` => _copy file_
 - `mv path_to_file path_to_new_directory` => _move file_
+- `hash path_to_file` => _calculate hash for file and print it into console_
+- `compress path_to_file path_to_destination` => _compress file using Brotli algorithm_
+- `decompress path_to_file path_to_destination` => _decompress file using Brotli algorithm_
 
-!!! If you want to enter path names with spaces, you need to add an asterisk (*) symbol without any spaces. <br/>
-(example: cp folder/file\*name.txt folder/target\*folder)
+### operating system info
+- `os --EOL` => _get default systeme end-of-Line_
+- `os --cpus` => _get host machine CPUs info_
+- `os --homedir` => _get home directory_
+- `os --username` => _get current system user name_
+- `os --architecture` => _get CPU architecture_
+
+> **If you want to enter path names with spaces, you need to add an asterisk (*) symbol without any spaces.**<br>
+**example**: cp folder/`file*name.txt` folder/`target*folder`
+
+
